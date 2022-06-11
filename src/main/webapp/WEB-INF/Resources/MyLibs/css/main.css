@@ -1,0 +1,63 @@
+@charset "ISO-8859-1";
+html, body, .container-login, .container-logo{
+	height: 100%;
+}
+/* Login y Logup */
+.container-logo{
+	background:url(../../Images/logo.png);
+	background-position:50% 50%;
+	background-repeat:no-repeat;
+}
+.container-form{
+	background-color: #06145a;
+	height: 100%;
+}
+.container-form div.row{
+	height: 100%;
+}
+.container-form div.row div form{
+	margin-top:50%;
+}
+.container-form label{
+	color: #FFFFFF;
+}
+.link-logup{
+	color: #0583BC;
+}
+/* Buscador */
+.navbar{
+	padding-top:6px !important;
+	padding-bottom:6px !important;	
+}
+.navbar-brand{
+	padding-left:80px !important;
+}
+#section-search{
+	background:url(../../Images/img.JPG);
+	background-repeat:no-repeat;
+	background-size: 100% 100%;
+	padding: 60px 90px;
+	color: #FFFFFF;
+}
+.section-index{
+	padding: 150px 90px !important;
+}
+.search-black{
+	color: #000000;
+}
+.bg-own{
+	background-color: #06145a;
+}
+#btn-search, #btn-home, #btn-logout{
+	border-radius: 50%;
+	margin-right: 80px;
+}
+#section-result{
+	padding: 60px 90px;
+}
+#section-result .card{
+	border: 0 !important;
+}
+#libros, #result-libros{
+	padding: 90px;
+}
