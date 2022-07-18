@@ -22,7 +22,7 @@
 		%>
 		<div class="col-sm-1 text-center">
 			<a href="<%= request.getContextPath()%>/Resources/Files/<%= libro.getRuta_pdf() %>">
-				<img src="<%= request.getContextPath()%>/Resources/Files/<%= libro.getRuta_imagen() %>" class="img-fluid rounded-start" width="60%" height="60%"><br>
+				<img src="<%= request.getContextPath()%>/Resources/Files/<%= libro.getRuta_imagen() %>" class="img-fluid rounded-start" width="60%" height="60%"><br>				
 				<span class="fw-bold"><%= Constants.MESES[row-1] %>_2000</span>
 			</a>
 		</div>

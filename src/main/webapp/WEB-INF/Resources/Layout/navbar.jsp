@@ -8,6 +8,9 @@
 			<security:authorize access="hasRole('ROLE_ADMIN')">
 				<a href="<%=request.getContextPath()%>/admin" id="btn-home" class="btn btn-primary" role="button"><i class="fa-solid fa-gear"></i></a>
 			</security:authorize>
+			<security:authorize access="hasRole('ROLE_TRABAJADOR')">
+				<a href="<%=request.getContextPath()%>/admin" id="btn-home" class="btn btn-primary" role="button"><i class="fa-solid fa-gear"></i></a>
+			</security:authorize>
 			<a href="<%=request.getContextPath()%>/home" id="btn-home" class="btn btn-primary" role="button"><i class="fa-solid fa-house"></i></a>
 			<a href="<%=request.getContextPath()%>/buscador" id="btn-search" class="btn btn-primary" role="button"><i class="fa-solid fa-magnifying-glass"></i></a>
 			<form:form action="${pageContext.request.contextPath}/logout" method="POST"><button id="btn-logout" type="submit" class="btn btn-danger" role="button" value="Logout"><i class="fa-solid fa-right-from-bracket"></i></button></form:form>

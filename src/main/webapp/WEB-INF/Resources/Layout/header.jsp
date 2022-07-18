@@ -5,6 +5,9 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<script type="text/javascript">
+const BASE_URL = "<c:url value="/"/>";
+</script>
 <head>
 	<meta charset="ISO-8859-1">
 	
@@ -19,5 +22,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
+	<script src="<c:url value="/Resources/MyLibs/js/main.js"/>"></script>
 </head>
 <body>

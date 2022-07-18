@@ -1,9 +1,10 @@
 <%@include file="../../Resources/Layout/header.jsp"%>
 <%@include file="../../Resources/Layout/navbar.jsp"%>
+<script src="<c:url value="/Resources/JS/Buscador/buscador.js"/>"></script>
 
 <section id="section-search">
 	<h3 class="fw-bolder">BUSCAR CONTENIDO</h3>
-	<form action="buscador" method="post">
+	<form id="frm">
 		<input type="hidden" name="accion" value="buscar">
 		<div class="row g-3 align-items-center mb-4">
 			<div class="col-1">
@@ -25,7 +26,7 @@
   			<div class="col-3">
   			</div>
   			<div class="col-1">
-    			<label for="titulo" class="col-form-label search-black fw-bold">Año:</label>
+    			<label for="anio" class="col-form-label search-black fw-bold">Año:</label>
   			</div>
   			<div class="col-1">
     			<input type="text" id="anio" name="anio" class="form-control form-control-sm">
@@ -33,7 +34,7 @@
 		</div>
 		<div class="row g-3 align-items-center mb-3 mt-2">
 			<div class="col-1">
-    			<label for="titulo" class="col-form-label fw-bold">Autor:</label>
+    			<label for="autor" class="col-form-label fw-bold">Autor:</label>
   			</div>
   			<div class="col-3">
     			<input type="text" id="autor" name="autor" class="form-control form-control-sm">
@@ -46,5 +47,12 @@
 		</div>
 	</form>
 </section>
+<div class="row mt-4">
+	<div class="col-2"></div>
+	<div class="col">
+		<table id="tbl" class="display compact row-border nowrap" style="width:99%"></table>
+	</div>
+	<div class="col-2"></div>
+</div>
 
 <%@include file="../../Resources/Layout/footer.jsp"%>

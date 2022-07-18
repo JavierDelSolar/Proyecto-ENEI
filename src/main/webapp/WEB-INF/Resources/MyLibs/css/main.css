@@ -32,6 +32,31 @@ html, body, .container-login, .container-logo{
 .navbar-brand{
 	padding-left:80px !important;
 }
+
+/* Nav Tab */
+#panel{
+	height: 100%;
+}
+#navtab{
+	height: 100%;
+}
+#tab{
+	background-color:#06145a;
+	color: #FFFFFF;
+}
+#tab h4{
+	padding: 50px 30px;
+}
+#navtab .nav-item{
+	padding: 30px 40px;
+}
+a:link {
+  text-decoration: none;
+}
+#navtab .nav-item a span{
+	padding: 0 20px;
+}
+
 #section-search{
 	background:url(../../Images/img.JPG);
 	background-repeat:no-repeat;
@@ -60,4 +85,9 @@ html, body, .container-login, .container-logo{
 }
 #libros, #result-libros{
 	padding: 90px;
+}
+
+
+.section-head{
+	background-color: #C6DFFB;
 }

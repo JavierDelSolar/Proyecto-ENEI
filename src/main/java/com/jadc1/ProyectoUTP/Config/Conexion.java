@@ -7,7 +7,7 @@ public class Conexion {
 	private String URL = "localhost:3306";
 	private String BD = "bd_biblioteca";
 	private String USER = "root";
-	private String PASS = "";
+	private String PASS = "Javier1090";
 	
 	Connection cn;
 	

@@ -10,6 +10,9 @@ public class LibroModel {
 	private String ruta_imagen;
 	private int id_categoria;
 	private int tipo_documento;
+	private String categoria;
+	private String tipo_doc;
+	private String config;
 	
 	public LibroModel() {
 		super();
@@ -27,6 +30,22 @@ public class LibroModel {
 		this.ruta_imagen = ruta_imagen;
 		this.id_categoria = id_categoria;
 		this.tipo_documento = tipo_documento;
+	}
+	public LibroModel(int id, String nombre, String descripcion, String autor, String fecha, String ruta_pdf,
+			String ruta_imagen, int id_categoria, int tipo_documento, String categoria, String tipo_doc, String config) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.autor = autor;
+		this.fecha = fecha;
+		this.ruta_pdf = ruta_pdf;
+		this.ruta_imagen = ruta_imagen;
+		this.id_categoria = id_categoria;
+		this.tipo_documento = tipo_documento;
+		this.categoria = categoria;
+		this.tipo_doc = tipo_doc;
+		this.config = config;
 	}
 
 	public int getId() {
@@ -82,5 +101,20 @@ public class LibroModel {
 	}
 	public void setTipo_documento(int tipo_documento) {
 		this.tipo_documento = tipo_documento;
+	}
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+	public String getTipo_doc() {
+		return tipo_doc;
+	}
+	public void setTipo_doc(String tipo_doc) {
+		this.tipo_doc = tipo_doc;
+	}
+	public String getConfig() {
+		return config;
 	}
 }
