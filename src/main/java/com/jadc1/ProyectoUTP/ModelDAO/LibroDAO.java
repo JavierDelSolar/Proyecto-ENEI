@@ -12,6 +12,7 @@ import com.jadc1.ProyectoUTP.Interface.LibroInterface;
 import com.jadc1.ProyectoUTP.Model.CategoriaModel;
 import com.jadc1.ProyectoUTP.Model.LibroModel;
 import com.jadc1.ProyectoUTP.Model.TipoDocumentoModel;
+import com.jadc1.ProyectoUTP.Model.UserModel;
 
 public class LibroDAO implements LibroInterface{
 	Conexion conexion = new Conexion();
@@ -79,7 +80,13 @@ public class LibroDAO implements LibroInterface{
 			st = cn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			rs = st.executeQuery(query);
 			while(rs.next()){
-				String nom = "<img src='/ProyectoUTP/Resources/Files/"+rs.getString("ruta_imagen")+"' width='100px' height='150px'>";
+				String ruta = "";
+				if(rs.getInt("id")<= 30) {
+					ruta = "Files/";
+				}else {
+					ruta = "";
+				}
+				String nom = "<img src='/ProyectoUTP/Resources/"+ruta+rs.getString("ruta_imagen")+"' width='100px' height='150px'>";
 				String config = "<a href='/ProyectoUTP/buscador/libro?id="+rs.getString("id")+"'>"+rs.getString("nombre")+", "+rs.getString("fecha_creacion")+"</a><br>";
 				config = config + "<b>Autor:</b> <span class='fst-italic'>"+rs.getString("Autor")+"</span>";
 				lista.add(new LibroModel(rs.getInt("id"), 
@@ -170,6 +177,38 @@ public class LibroDAO implements LibroInterface{
 			System.out.println(e);
 		}
 		return null;
+	}
+	
+	@Override
+	public void deleteLibro(String libro){
+		String query = "DELETE FROM documento WHERE id = ?";
+		try {
+			cn = conexion.getConnection();
+			PreparedStatement ps = cn.prepareStatement(query);
+			ps.setString(1, libro);
+			ps.execute();
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	@Override
+	public void updateLibro(LibroModel libroModel) {
+		String query = "UPDATE documento SET nombre = ?, descripcion = ?, autor = ?, fecha_creacion = ?, id_categoria = ?, tipo_documento = ? WHERE id = ?";
+		try {
+			cn = conexion.getConnection();
+			PreparedStatement ps = cn.prepareStatement(query);
+			ps.setString(1, libroModel.getNombre());
+			ps.setString(2, libroModel.getDescripcion());
+			ps.setString(3, libroModel.getAutor());
+			ps.setString(4, libroModel.getFecha());
+			ps.setInt(5, libroModel.getId_categoria());
+			ps.setInt(6, libroModel.getTipo_documento());
+			ps.setInt(7, libroModel.getId());
+			ps.execute();
+		}catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 }

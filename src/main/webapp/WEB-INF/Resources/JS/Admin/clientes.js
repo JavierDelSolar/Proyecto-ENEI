@@ -12,7 +12,7 @@ $(document).ready(function(){
         var data = {};
         data["usuario"] = $(this).attr("usuario");
         data = JSON.stringify(data);
-        RequestAjaxJson("user/getCliente", "POST", null, function(){
+        RequestAjaxJson("user/getCliente", "POST", data, function(){
         }, function(result){
             $("#usuario").val(result.usuario);
             $("#password").val(result.password);

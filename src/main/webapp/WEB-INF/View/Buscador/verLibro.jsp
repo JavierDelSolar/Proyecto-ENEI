@@ -10,7 +10,15 @@
 		<br>
 		<div class="row mt-4">
 			<div class="col-3">
-				<img src="<%= request.getContextPath()%>/Resources/Files/<%= libro.getRuta_imagen() %>" width='200px' height='300px'>
+				<%
+				String ruta = "";
+				if(libro.getId()<= 30) {
+					ruta = "Files/";
+				}else {
+					ruta = "";
+				}
+				%>
+				<img src="<%= request.getContextPath()%>/Resources/<%= ruta+libro.getRuta_imagen() %>" width='200px' height='300px'>
 			</div>
 			<div class="col">
 				<div class="row">

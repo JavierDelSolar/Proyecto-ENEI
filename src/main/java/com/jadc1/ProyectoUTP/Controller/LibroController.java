@@ -1,11 +1,8 @@
 package com.jadc1.ProyectoUTP.Controller;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.annotation.MultipartConfig;
 
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
@@ -17,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jadc1.ProyectoUTP.Model.LibroModel;
 import com.jadc1.ProyectoUTP.ModelDAO.LibroDAO;
@@ -67,7 +62,7 @@ public class LibroController {
 		return libroModel;
 	}
 	
-	@PostMapping("/crearLibro")
+	/*@PostMapping("/crearLibro")
 	@ResponseBody
 	public String crearLibro(@RequestParam("pdf") MultipartFile pdf,
 							@RequestParam("portada") MultipartFile portada,
@@ -76,5 +71,30 @@ public class LibroController {
 		LibroDAO libroDAO = new LibroDAO();
 		LibroModel libroModel = new LibroModel();
 		return "";
+	}*/
+	
+	@PostMapping(value="/deleteLibro")
+	@ResponseBody
+	public boolean deleteCliente(@RequestBody Map<String, String> libro){
+		LibroDAO libroDAO = new LibroDAO();
+		libroDAO.deleteLibro(libro.get("libro"));
+		return true;
+	}
+	
+	@PostMapping(value="/updateLibro")
+	@ResponseBody
+	public boolean updateLibro(@RequestBody Map<String, String> libro){
+		LibroModel libroM = new LibroModel();
+		libroM.setId(Integer.parseInt(libro.get("id")));
+		libroM.setNombre(libro.get("nombre"));
+		libroM.setDescripcion(libro.get("descripcion"));
+		libroM.setAutor(libro.get("autor"));
+		libroM.setFecha(libro.get("fecha"));
+		libroM.setId_categoria(Integer.parseInt(libro.get("categoria")));
+		libroM.setTipo_documento(Integer.parseInt(libro.get("tipo_documento")));
+		
+		LibroDAO libroDAO = new LibroDAO();
+		libroDAO.updateLibro(libroM);
+		return true;
 	}
 }

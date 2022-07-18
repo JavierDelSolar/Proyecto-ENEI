@@ -12,4 +12,6 @@ public interface LibroInterface {
 	public List<LibroModel> listar(LibroModel libro);
 	public List<LibroModel> listarLibroAdmin();
 	public LibroModel getLibro(String id);
+	public void deleteLibro(String usuario);
+	public void updateLibro(LibroModel libroModel);
 }

@@ -12,6 +12,7 @@
 	<div class="col-1"></div>
 	<div class="col">
 		<form id="frm" action="<%=request.getContextPath()%>/libro/crearLibro" method="post" enctype="multipart/form-data">
+			<input type="hidden" class="form-control" id="libro" name="libro" value="">
 			<div class="row mb-3">
 				<div class="col-1">
 					<label for="nombre" class="col-sm-2 col-form-label">Titulo</label>

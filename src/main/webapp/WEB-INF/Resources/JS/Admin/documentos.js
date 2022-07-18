@@ -15,6 +15,7 @@ $(document).ready(function(){
         data = JSON.stringify(data);
         RequestAjaxJson("libro/getLibro", "POST", data, function(){
         }, function(result){
+            $("#libro").val(result.id);
             $("#nombre").val(result.nombre);
             $("#descripcion").val(result.descripcion);
             $("#autor").val(result.autor);
@@ -38,21 +39,22 @@ $(document).ready(function(){
 	        beforeSend: function(){
 	        },
 	        success:function(result){
+				tbl.ajax.reload();
 	        }  
 	    });
 	});
 	
-	
-	
 	$("button[option='guardar']").click(function(){
 		var data = {};
-		data["usuario"] = $("#usuario").val();
-		data["password"] = $("#password").val();
-		data["nombres"] = $("#nombres").val();
-		data["apellidos"] = $("#apellidos").val();
-		data["correo"] = $("#correo").val();
+		data["id"] = $("#libro").val();
+		data["nombre"] = $("#nombre").val();
+		data["descripcion"] = $("#descripcion").val();
+		data["autor"] = $("#autor").val();
+		data["fecha"] = $("#fecha").val();
+		data["categoria"] = $("#categoria").val();
+		data["tipo_documento"] = $("#tipo_documento").val();
 		data = JSON.stringify(data);
-		RequestAjaxJson("user/updateCliente", "POST", data, function(){
+		RequestAjaxJson("libro/updateLibro", "POST", data, function(){
         }, function(result){
             tbl.ajax.reload();
         });
@@ -60,9 +62,9 @@ $(document).ready(function(){
 	
 	$("button[option='eliminar']").click(function(){
 		var data = {};
-		data["usuario"] = $("#usuario").val();
+		data["libro"] = $("#libro").val();
 		data = JSON.stringify(data);
-		RequestAjaxJson("user/deleteCliente", "POST", data, function(){
+		RequestAjaxJson("libro/deleteLibro", "POST", data, function(){
         }, function(result){
             tbl.ajax.reload();
         });
